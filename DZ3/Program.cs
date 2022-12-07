@@ -63,7 +63,7 @@ Console.Write(res);
 */
 // ЗАдача 3. Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 /*
-void NumQuad(int n)
+void NumCube(int n)
 {
     int i = 1;
     while(i <= n)
@@ -78,7 +78,7 @@ void NumQuad(int n)
 Console.Write("Введите число n: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-NumQuad(n);
+NumCube(n);
 */
 
 
