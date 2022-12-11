@@ -2,28 +2,56 @@
 /*
 bool Palindrom(int num)
 {
-    int n = 10;
-    int i = 10;
-    while(num / n != 0)
+    int res1, res2, res3;
+    if(num >= 10)
     {
-        int res = num / n;
-        int res2 = num % i;
-        if(res == res2)
+        int n = 100, a = 10;
+        while(num / n != 0)
         {
-            n = n*10;
-            i = i*10;
-            return true;
+            n = n * 10;
         }
-        else
+        n = n / 10;
+        res3 = num;
+        while(num / a != 0)
         {
-            return false;
+            res1 = res3 / n;
+            res2 = res3 % 10;
+            if(res1 == res2)
+            {
+                res3 = num % n;
+                res3 = res3 / 10;
+                a = a * 10;
+                if(res3 / 10 != 0)
+                {
+                    n = n / 10;
+                    Console.WriteLine("n2= " + n);
+                } 
+                else if(res3 / (n/10) != 0)
+                {
+                   n = n / 100;
+                    Console.WriteLine("n3= " + n); 
+                }  
+            }
+            else if(res1 == 0 && num > 100)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
 int num = Convert.ToInt32(Console.ReadLine());
-int res3 = Palindrom(num);
-if(Palindrom == true)
+bool res4 = Palindrom(num);
+if(res4 == true)
 {
     Console.Write($"Число: {num} палиндром");
 }
@@ -32,8 +60,6 @@ else
     Console.Write($"Число: {num} не палиндром");
 }
 */
-
-
 
 // Задача 2. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 /*
