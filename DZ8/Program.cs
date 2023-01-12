@@ -186,3 +186,106 @@ NewArrayC(res1, res2, n, m, a, b);
 */
 
 // Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+/*
+int[,,] Newarray(int n, int m, int z)
+{
+    int[,,] array = new int[n,m,z];
+    for(int i = 0; i < array.GetLength(0); i++)
+        for(int j = 0; i < array.GetLength(1); j++)
+            for(int k = 0; k < array.GetLength(2); k++)
+                array[i,j,k] = Convert.ToInt32(Console.ReadLine());//new Random().Next(10,100);
+    return array;
+}
+
+void ShowArray(int[,,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            for(int k = 0; k < array.GetLength(2); k++)
+                Console.Write(array[i,j,k] + "\t");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+Console.Write("Введите количество столбцов: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов: ");
+int z = Convert.ToInt32(Console.ReadLine());
+
+int[,,] res = Newarray(n, m, z);
+ShowArray(res);
+*/
+//от 10 до 99 элементов 89
+
+// Напишите программу, которая заполнит спирально массив 4 на 4.
+
+int[,] CreateArray(int n, int m)
+{
+    int[,] array = new int[n,m];
+    int num = 0;
+    for(int i = 0; i < array.GetLength(0);)
+    {
+        if(i == 0)
+        {
+            for(int j = 0; j < array.GetLength(1);j++)
+            {
+                num += 1;
+                array[i,j] = num;
+            } 
+            i++;
+        }
+        if(i == array.GetLength(0) - 1)
+        {
+            for(int j = array.GetLength(1) - 1; j >= 0; j--)
+            {
+                num += 1;
+                array[i,j] = num;
+            }
+            i++;
+        }
+        else
+        {
+            for(int j = 0; j < array.GetLength(1);j++)
+            {
+                if(j == array.GetLength(1) - 1)
+                {
+                    num += 1;
+                    array[i,j] = num;
+                        
+                }
+            }
+            i++;
+        }
+    }
+    return array;
+}
+    
+    
+
+void ShowArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + "\t");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+Console.Write("Введите количество столбцов: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] res = CreateArray(n, m);
+ShowArray(res);
