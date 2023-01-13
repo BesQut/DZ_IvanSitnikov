@@ -1,4 +1,5 @@
-﻿// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива
+﻿// Выполнил только первые 3, остальные не получаются
+// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива
 /*
 int[,] CreateArray(int n, int m, int min, int max)
 {
@@ -186,14 +187,28 @@ NewArrayC(res1, res2, n, m, a, b);
 */
 
 // Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-/*
+/*(Не понимаю, как задать трехмерный массив, вроде все делаю правильно, но не задается и не понипмю как сделать что бы не было повторяющихся)
 int[,,] Newarray(int n, int m, int z)
 {
     int[,,] array = new int[n,m,z];
     for(int i = 0; i < array.GetLength(0); i++)
         for(int j = 0; i < array.GetLength(1); j++)
             for(int k = 0; k < array.GetLength(2); k++)
-                array[i,j,k] = Convert.ToInt32(Console.ReadLine());//new Random().Next(10,100);
+                array[i,j,k] = new Random().Next(10,100);
+    return array;
+}
+
+int[,,] Array(int[,,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+        for(int j = 0; j < array.GetLength(1); j++)
+            for(int k = 0; k < array.GetLength(1) - 1; k++)
+            {
+                if(array[i,j,k] == array[i,j,k + 1])
+                {
+                    array[i,j,k] = new Random().Next(10,100);
+                }
+            }
     return array;
 }
 
@@ -224,43 +239,51 @@ ShowArray(res);
 //от 10 до 99 элементов 89
 
 // Напишите программу, которая заполнит спирально массив 4 на 4.
-
+/*(На данный момент это все что я смог сделать, я дальше не понимаю)
 int[,] CreateArray(int n, int m)
 {
     int[,] array = new int[n,m];
-    int num = 0;
-    for(int i = 0; i < array.GetLength(0);)
+    for(int i = 0, j = 0, num = 0; i < array.GetLength(0) && j < array.GetLength(1) && num <= n*m;)
     {
-        if(i == 0)
+        if(i == 0 )
         {
-            for(int j = 0; j < array.GetLength(1);j++)
-            {
-                num += 1;
-                array[i,j] = num;
-            } 
+            num += 1;
+            array[i,j] = num;
+            Console.WriteLine("num= " + num + "array1= " + array[i,j] + "j= " + j);
+            j++;
+            Console.WriteLine("j1= " + j + "i1= " + i);
+        }
+        if(j == array.GetLength(1)-1)
+        {
+            num += 1;
+            array[i,j] = num;
+            Console.WriteLine("num2= " + num + "array2= " + array[i,j] + "j= " + j);
             i++;
+            Console.WriteLine("j2= " + j + "i2= " + i);
         }
         if(i == array.GetLength(0) - 1)
         {
-            for(int j = array.GetLength(1) - 1; j >= 0; j--)
+            // j--;
+            i = array.GetLength(0) - 1;
+            num += 1;
+            array[i,j] = num;
+            Console.WriteLine("num3= " + num + "array3= " + array[i,j] + "j= " + j);
+            if(j > 0)
             {
-                num += 1;
-                array[i,j] = num;
+                j--; 
             }
-            i++;
+            Console.WriteLine("j3= " + j + "i3= " + i);
         }
-        else
+        if(j <= 0 && i <= array.GetLength(0)-1)
         {
-            for(int j = 0; j < array.GetLength(1);j++)
+            num += 1;
+            array[i,j] = num;
+            if(i > 1)
             {
-                if(j == array.GetLength(1) - 1)
-                {
-                    num += 1;
-                    array[i,j] = num;
-                        
-                }
+                i--;
             }
-            i++;
+            Console.WriteLine("num4= " + num + "array4= " + array[i,j]);
+            Console.WriteLine("j4= " + j + "i4= " + i);
         }
     }
     return array;
@@ -289,3 +312,4 @@ int m = Convert.ToInt32(Console.ReadLine());
 
 int[,] res = CreateArray(n, m);
 ShowArray(res);
+*/
